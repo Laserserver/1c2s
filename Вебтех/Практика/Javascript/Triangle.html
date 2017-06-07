@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title>JS</title>
+    			<script>
+			function MathFunc(){
+				var a = document.getElementById("input1").value;
+				var b = document.getElementById("input2").value;
+				var c = document.getElementById("input3").value;
+                
+				var p = (a * 1 + b * 1 + c * 1)/2;
+				var j = Math.sqrt(p*(p-a)*(p-b)*(p-c));
+                
+				document.getElementById("output").value = j;
+			}
+			</script>
+    </head>
+    <body>
+        <input type = "text" id = "input1" /> 
+            <br>
+        <input type = "text" id = "input2" /> 
+    		<br>
+    	<input type = "text" id = "input3" /> 
+    		<br>
+    	<button onclick="MathFunc()"> Посчитать </button>
+    		<br>
+    	<input type = "text" id = "output" />
+    </body>
+</html>

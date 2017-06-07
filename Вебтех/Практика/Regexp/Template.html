@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Регулярка</title>
+    <script>
+			function CheckRegexp(){
+				var c = new RegExp(" ВСТАВИТЬ РЕГЭКС СЮДА ", "i");
+					document.getElementById("output").value = c.test(document.getElementById("input").value) ? "Подходит" : "Не подходит";
+			}
+	</script>
+</head>
+<body>
+	<input type = "text" id = "input" /> 
+		<br/>
+	<button onclick="CheckRegexp()"> Проверить </button>
+		<br/>
+	<input type = "text" id = "output" /> 
+</body>
+</html>
