@@ -5,16 +5,17 @@
     <title>Регулярка</title>
     <script>
 			function CheckRegexp(){
-				var c = new RegExp("(([0-2]\\d.02)|(([0-2]\\d|3[0-1])\\.(0[13-9]|1[0-2])))\\.\\d{2} ([0-1]\\d|2[0-3]):[0-5]\\d", "i");
-					document.getElementById("output").value = c.test(document.getElementById("input").value) ? "Подходит" : "Не подходит";
+				var c = new RegExp("^(((0[1-9]|[12]\\d)\\.02)|((0[1-9]|[12]\\d|3[01])\\.(0[13578]|1[02]))|((0[1-9]|[12]\\d|30)\\.(0[469]|11)))\\.\\d{2} (1\\d|2[0-3]|0[1-9]):[0-5]\\d$", "i");
+					document.getElementById("output").value = c.test(document.getElementById("input").value) ? "Подходит" : "Не подходит";     //У нас DOM (Document Object Model), потому можно вытащить из документа поле по id и совершать с ним действия.
+                    //Здесь мы вытаскиваем значение из поля input, проверяем регэксом и тернарным оператором ()?(если true):(если false) записываем ответ в output.
 			}
 	</script>
 </head>
 <body>
-	<input type = "text" id = "input" /> 
+	<input type="text" id="input" /> <!-- Здесь поле input -->
 		<br/>
-	<button onclick="CheckRegexp()"> Проверить </button>
+	<button onclick="CheckRegexp()"> Проверить </button>    <!-- Кнопка вызывает функцию -->
 		<br/>
-	<input type = "text" id = "output" /> 
+	<input type="text" id="output" /> <!-- Здесь поле output -->
 </body>
 </html>
