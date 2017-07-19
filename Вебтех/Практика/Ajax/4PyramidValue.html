@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title>Объем правильной четырехугольной пирамиды</title>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+	<script>               //Функцию вызываем по нажатию кнопки
+		function call() {                     //Знак $ - сокращенный вызов методов jQuery
+		var msg = $('#formx').serialize();    //Считывает все поля формы и  возвращает строку пригодную для передачи через URL строку
+			$.ajax({                          //.ajax - самый основной метод jQuery
+			type: 'POST',                     //Значит, что будем ожидать POST-запрос
+			url: '4PyramidValue.php',         //Файл логики
+			data: msg,                        //data — данные, которые будут отправлены на сервер
+			success: function(data) {         //В случае успеха полученные данные data 
+				$('#results').html(data);     //записываем в элемент с id results.
+			},
+			error:  function(xhr, str){                      //В случае ошибки
+			alert('Возникла ошибка: ' + xhr.responseCode);   //выписываем сообщение и код ошибки.
+			}
+			});
+	
+		}
+	</script>
+   
+    </head>
+<body>
+    <p>V = H*A*A/3</p>
+   
+    <form method="POST" id="formx" action="javascript:void(null);" onsubmit="call()"> <!-- action="javascript:void(null);" отключает обычное поведение при выполнении функции -->
+        <p>Сторона основания А:  <input type="text" name="A"></p>
+        <p>Высота H:             <input type="text" name="H"></p>
+	    <input type="submit" value="Жмакни меня">
+    </form>
+
+    <div id="results"></div>
+    
+</body>
+</html>
